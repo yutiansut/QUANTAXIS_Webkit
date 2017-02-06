@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Electron from 'vue-electron'
 import Resource from 'vue-resource'
 import Router from 'vue-router'
-
+import axios from 'axios';
 import App from './App'
 import routes from './routes'
 import MuseUI from 'muse-ui'
