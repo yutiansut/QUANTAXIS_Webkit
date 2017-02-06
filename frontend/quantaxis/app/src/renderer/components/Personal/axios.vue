@@ -3,7 +3,7 @@
         <h1>axios</h1>
         <div>
           <ul>
-            <li><input v-model="message" placeholder="edit me"></li>
+            <li><input v-model="message" placeholder="edit me" lazy></li>
             <li><p>Message is: {{ message }}</p></li>
           </ul>
         </div>
