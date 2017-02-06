@@ -5,11 +5,15 @@ import Router from 'vue-router'
 
 import App from './App'
 import routes from './routes'
+import MuseUI from 'muse-ui'
+import 'muse-ui/dist/muse-ui.css'
+import './theme-carbon.css'
 
 Vue.use(Electron)
 Vue.use(Resource)
 Vue.use(Router)
 Vue.config.debug = true
+Vue.use(MuseUI)
 
 const router = new Router({
   scrollBehavior: () => ({ y: 0 }),
