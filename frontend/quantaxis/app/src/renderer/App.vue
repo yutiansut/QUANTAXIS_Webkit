@@ -1,7 +1,7 @@
 <template>
   <div id="app">
   <mu-appbar title="Title">
-    <mu-flat-button color="white" label="QUANTAXIS" slot="left"/> 
+    <mu-flat-button color="white" label="QUANTAXIS" style="-webkit-app-region: drag" disable slot="left"/> 
     <mu-raised-button label="MENU"slot="right" @click="toggle()"/>
     <mu-drawer right :open="open" @close="toggle()">
       <mu-appbar title="MENU"/>

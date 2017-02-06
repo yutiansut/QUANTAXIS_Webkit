@@ -9,6 +9,7 @@
                 </mu-list>
                   <mu-divider/>
                   <mu-list>
+                    <router-link to="/personal/index"><mu-list-item title="任务列表"></mu-list-item></router-link>
                     <router-link to="/personal/index"><mu-list-item title="好友"></mu-list-item></router-link>
                     <router-link to="/personal/index"><mu-list-item title="我喜欢的策略"></mu-list-item></router-link>
                     <router-link to="/personal/index"><mu-list-item title="账户设置"></mu-list-item></router-link>
