@@ -6,10 +6,11 @@
     <mu-drawer right :open="open" @close="toggle()">
       <mu-appbar title="MENU"/>
       <mu-list>
+        <router-link to='/sign'><mu-list-item title="USER"/></router-link>
         <router-link to='/'><mu-list-item title="HOME"/></router-link>
-        <router-link to='/sign'><mu-list-item title="SIGN IN"/></router-link>
+        
         <router-link to='/start'><mu-list-item title="START"/></router-link>
-        <router-link to='/'><mu-list-item title="TODO"/></router-link>
+        <router-link to='/todo'><mu-list-item title="TODO"/></router-link>
         <mu-list-item @click.native="open = false" title="Close"/>
       </mu-list>
     </mu-drawer>

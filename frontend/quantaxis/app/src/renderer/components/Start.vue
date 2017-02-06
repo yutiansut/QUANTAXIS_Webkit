@@ -115,9 +115,8 @@ export default {
     width:30%;
     height:100%;
     position:relative;
-    float: left;
     display: inline-block;
-    margin: 15% 0%;
+    margin: 16% 0%;
 }
 
 #title h1{
