@@ -4,6 +4,11 @@ export default [
     name: 'homePage',
     component: require('components/HomePage')
   },
+   {
+    path: '/sign',
+    name: 'signPage',
+    component: require('components/Sign')
+  },
   {
     path: '/start',
     name: 'startPage',

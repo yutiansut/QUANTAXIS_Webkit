@@ -2,11 +2,12 @@
   <div id="app">
   <mu-appbar title="Title">
     <mu-flat-button color="white" label="QUANTAXIS" slot="left"/> 
-    <mu-raised-button label="More"slot="right" @click="toggle()"/>
+    <mu-raised-button label="MENU"slot="right" @click="toggle()"/>
     <mu-drawer right :open="open" @close="toggle()">
-      <mu-appbar title="View"/>
+      <mu-appbar title="MENU"/>
       <mu-list>
         <router-link to='/'><mu-list-item title="HOME"/></router-link>
+        <router-link to='/sign'><mu-list-item title="SIGN IN"/></router-link>
         <router-link to='/start'><mu-list-item title="START"/></router-link>
         <router-link to='/'><mu-list-item title="TODO"/></router-link>
         <mu-list-item @click.native="open = false" title="Close"/>
