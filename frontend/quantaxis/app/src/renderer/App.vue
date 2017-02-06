@@ -1,5 +1,11 @@
 <template>
   <div id="#app">
+      <div id='nav'>
+        <lu>
+          <li><router-link to='/'>home</router-link></li>
+          <li><router-link to='/lp'>LandingPage</router-link></li>
+        </lu>
+      </div>
     <router-view></router-view>
   </div>
 </template>

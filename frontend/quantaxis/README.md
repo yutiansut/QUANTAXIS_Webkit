@@ -14,9 +14,6 @@ npm run dev
 # build electron app for production
 npm run build
 
-# lint all JS/Vue component files in `app/src`
-npm run lint
-
 # run webpack in production
 npm run pack
 ```

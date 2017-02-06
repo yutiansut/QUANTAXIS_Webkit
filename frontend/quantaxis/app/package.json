@@ -4,6 +4,8 @@
   "description": "An electron-vue project",
   "main": "./dist/main.js",
   "dependencies": {
+    "keycode": "^2.1.8",
+    "muse-ui": "^2.0.0-rc.5",
     "vue": "^2.1.10",
     "vue-electron": "^1.0.6",
     "vue-resource": "^1.0.3",

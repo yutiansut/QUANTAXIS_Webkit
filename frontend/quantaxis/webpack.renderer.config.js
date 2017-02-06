@@ -101,22 +101,6 @@ let rendererConfig = {
   target: 'electron-renderer'
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  /**
-   * Apply ESLint
-   */
-  if (settings.eslint) {
-    rendererConfig.module.rules.push(
-      {
-        test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        enforce: 'pre',
-        exclude: /node_modules/,
-        options: { formatter: require('eslint-friendly-formatter') }
-      }
-    )
-  }
-}
 
 /**
  * Adjust rednererConfig for production settings
