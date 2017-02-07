@@ -20,5 +20,6 @@ web端在web/
 
 采用前后端分离的方式开发
 ### 预览
-
+![首页](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/home.png)
+![start](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/start.png)
 
