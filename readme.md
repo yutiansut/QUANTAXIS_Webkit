@@ -31,7 +31,7 @@ web端在web/
 ![personal](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/personal.png)
 #### 查询页面
 ![query](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/query.png)
-新增分页,固定表格高度
+Commit#34 Update :新增分页,固定表格高度
 ![query](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/update1.png)
 网页部分:
 #### 首页
