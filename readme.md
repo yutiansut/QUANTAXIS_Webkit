@@ -32,7 +32,7 @@ web端在web/
 #### 查询页面
 ![query](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/query.png)
 新增分页,固定表格高度
-![query](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/update.png)
+![query](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/update1.png)
 网页部分:
 #### 首页
 ![首页](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/web-home.png)
