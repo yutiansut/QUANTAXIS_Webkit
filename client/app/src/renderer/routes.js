@@ -30,11 +30,6 @@ export default [
     component: require('components/Start')
   },
   {
-    path: '/lp',
-    name: 'landing-page',
-    component: require('components/LandingPageView')
-  },
-  {
     path: '*',
     redirect: '/'
   }
