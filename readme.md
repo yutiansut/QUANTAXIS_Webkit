@@ -20,9 +20,25 @@ web端在web/
 
 采用前后端分离的方式开发
 ### 预览
+客户端部分:
+#### 首页
 ![首页](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/home.png)
+#### Start页面
 ![start](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/start.png)
+#### 注册页面
 ![login](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/signin.png)
+#### 用户页面
 ![personal](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/personal.png)
+#### 查询页面
 ![query](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/query.png)
-
+网页部分:
+#### 首页
+![首页](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/web-home.png)
+#### Start页面
+![start](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/web-start.png)
+#### 注册页面
+![login](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/web-signin.png)
+#### 用户页面
+![personal](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/web-personal.png)
+#### 查询页面
+![query](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/web-query.png)

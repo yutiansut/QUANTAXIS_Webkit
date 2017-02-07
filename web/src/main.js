@@ -18,28 +18,40 @@ Vue.use(MuseUI)
 Vue.use(VueAwesomeSwiper)
 
 Vue.config.devtools = true;
-const routes = [{
-  path : '/',
-  component : HomePage
-},{
-  path : '/home',
-  component : HomePage
-},{
-  path : '/todo',
-  component : Todo
-},{
-  path : '/start',
-  component : Start
-},{
-  path : '/user',
-  component : Start,
-  children:[
-    {
-      path:'#/id',
-      component:HomePage
-    }
-  ]
-}];
+const routes = [ {
+    path: '/',
+    name: 'homePage',
+    component: require('./components/HomePage.vue')
+  },
+   {
+    path: '/todo',
+    name: 'todoPage',
+    component: require('./components/todo.vue')
+  },
+   {
+    path: '/sign',
+    name: 'signPage',
+    component: require('./components/Sign.vue')
+  },
+   {
+    path: '/personal',
+    name: 'personal',
+    component: require('./components/Personal.vue'),
+    children:[
+      {'path': '/personal/index',component: require('./components/Personal/index.vue')},
+      {'path': '/personal/notebook',component: require('./components/Personal/notebook.vue')},
+      {'path': '/personal/axios',component: require('./components/Personal/axios.vue')}
+    ]
+  },
+  {
+    path: '/start',
+    name: 'startPage',
+    component: require('./components/Start.vue')
+  },
+  {
+    path: '*',
+    redirect: '/'
+  }];
 
 
 const router = new VueRouter({
