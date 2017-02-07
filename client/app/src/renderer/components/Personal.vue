@@ -3,7 +3,7 @@
         <div class="welcome">
               <mu-list>
                     <router-link to="/personal/index"><mu-list-item title="个人中心"></mu-list-item></router-link>
-                    <router-link to="/personal/notebook"><mu-list-item title="策略NOTEBOOK"></mu-list-item></router-link>
+                    <router-link to="/personal/notebook"><mu-list-item title="NOTEBOOK"></mu-list-item></router-link>
                     <router-link to="/personal/index"><mu-list-item title="模拟回测"></mu-list-item></router-link>
                     <router-link to="/personal/axios"><mu-list-item title="爬虫部署"></mu-list-item></router-link>
                 </mu-list>
