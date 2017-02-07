@@ -1,15 +1,14 @@
 <template>
   <div id="app">
   <mu-appbar title="Title">
-    <mu-flat-button color="white" label="QUANTAXIS_SPIDER" slot="left"/> 
-    <mu-text-field  class="appbar-search-field"  slot="right" hintText="请输入搜索内容"/>
-     
-    <mu-icon-button color="white" label="QUANTAXIS_SPIDER" slot="left"/>
-    <mu-raised-button label="More"slot="right" @click="toggle()"/>
+    <mu-flat-button color="white" label="QUANTAXIS" style="-webkit-app-region: drag" disable slot="left"/> 
+    <mu-raised-button label="MENU"slot="right" @click="toggle()"/>
     <mu-drawer right :open="open" @close="toggle()">
-      <mu-appbar title="View"/>
+      <mu-appbar title="MENU"/>
       <mu-list>
-        <router-link to='/home'><mu-list-item title="HOME"/></router-link>
+        <router-link to='/sign'><mu-list-item title="USER"/></router-link>
+        <router-link to='/'><mu-list-item title="HOME"/></router-link>
+        
         <router-link to='/start'><mu-list-item title="START"/></router-link>
         <router-link to='/todo'><mu-list-item title="TODO"/></router-link>
         <mu-list-item @click.native="open = false" title="Close"/>
@@ -24,13 +23,10 @@
 </template>
 
 <script>
-import mobileTearSheet from './components/mobile.vue'
-export default {
-  name: 'app',
-  components: {
-    'mobile-tear-sheet': mobileTearSheet
-  },
-   data () {
+  import store from 'renderer/vuex/store'
+  export default {
+    store,
+    data () {
     return {
       open: false
     }
@@ -40,11 +36,35 @@ export default {
       this.open = !this.open
     }
   }
-  //vm
-}
+
+  }
 </script>
 
-<style lang='less'>
+<style>
+  @import url(https://fonts.googleapis.com/css?family=Lato:300);
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body { height: 100%; }
+
+  body {
+    background:
+      radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(229, 229, 229, .85) 100%
+      );
+    background-position: center;
+    display: flex;
+    font-family: Lato, Helvetica, sans-serif;
+    justify-content: center;
+    text-align: center;
+  }
+
 span.mu-flat-button-label{
   font-size: 28px;
 }
@@ -52,6 +72,7 @@ span.mu-flat-button-label{
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   text-align: center;
   color: #2c3e50;
+  width:100%;
 }
 
 h1, h2 {
