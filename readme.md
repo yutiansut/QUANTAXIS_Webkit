@@ -22,4 +22,7 @@ web端在web/
 ### 预览
 ![首页](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/home.png)
 ![start](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/start.png)
+![login](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/signin.png)
+![personal](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/personal.png)
+![query](https://github.com/yutiansut/QUANTAXIS_Visualization/blob/dev-front-back/pic/query.png)
 
