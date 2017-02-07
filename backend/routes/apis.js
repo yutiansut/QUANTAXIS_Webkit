@@ -15,16 +15,12 @@ router.get('*', function(req, res, next) {
 router.get('/', function(req, res, next) {
   res.render('apis/index', { title: 'APIS' });
 }); 
-
 router.get('/json', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-
-
 router.get('/queryContentbyName', function(req, res, next) {
     console.log('get data');
     console.log(req.query.name);
-
      if(req.query.name) {
     var name=new RegExp(req.query.name);//模糊查询参数
         console.log(name);
