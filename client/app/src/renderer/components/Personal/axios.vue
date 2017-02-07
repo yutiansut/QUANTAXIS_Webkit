@@ -3,8 +3,9 @@
         <h1>axios</h1>
         <div>
           <ul>
-            <li><input v-model="message" placeholder="edit me" lazy></li>
+            <li><input v-model="message" v-on:keyup.enter="addNewTodo"placeholder="edit me" lazy></li>
             <li><p>Message is: {{ message }}</p></li>
+            <button v-on:click='' label=''>submit</button>
           </ul>
         </div>
     </div>
