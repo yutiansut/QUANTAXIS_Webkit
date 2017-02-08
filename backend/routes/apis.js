@@ -55,6 +55,22 @@ router.get('/queryTitlebyName', function(req, res, next) {
         })
     })
 });
+router.get('/queryContentbyTitle',function(req,res,next){
+        console.log('get data');
+    console.log(req.query.title);
+     if(req.query.title) {
+    var title=new RegExp(req.query.title);//模糊查询参数
+        console.log(title);
+    }
+    mongodb.connect('mongodb://localhost:27017/wsc', function(err, conn){
+         conn.collection('articles', function(err, coll){ 
+              coll.find({'title':title}).toArray(function(err,docs){
+                  var result=docs[0].content;
+                  res.send(result)
+         })
+        })
+    })
+})
 
 
 
