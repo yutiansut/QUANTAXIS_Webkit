@@ -12,10 +12,10 @@
                 </mu-dropDown-menu>
                 </div>
 
-                <mu-text-field label="账户" hintText="请输入用户名" type="password" labelFloat/><br/>
+                <mu-text-field label="账户" hintText="请输入用户名" v-model="valuex" type="password" labelFloat/><br/>
                 <mu-text-field label="密码" hintText="请输入密码" type="password" labelFloat/><br/>
-                <mu-raised-button label="注册" @click="open('top')"/>
-                <router-link to="/personal"><mu-raised-button label="登陆" /></router-link>
+                <mu-raised-button label="注册" @click="reg()"/>
+                <mu-raised-button label="登陆"   @click="login()"/>
         </div>
           <mu-popup position="top" :overlay="false" popupClass="demo-popup-top" :open="topPopup">
             注册成功
@@ -60,15 +60,17 @@
 
 </style>
 <script>
+import axios from 'axios'
 export default {
   data () {
     return {
         value: '1',
+        valuex:'username',
       topPopup: false
     }
   },
   methods: {
-          handleChange (value) {
+    handleChange (value) {
       this.value = value
     },
     open (position) {
@@ -76,6 +78,41 @@ export default {
     },
     close (position) {
       this[position + 'Popup'] = false
+    },
+    reg(){
+      var name=document.getElementsByClassName('mu-text-field-input')[0].value
+      var password=document.getElementsByClassName('mu-text-field-input')[1].value
+      let val='name='+name+'&password='+password
+      console.log(val)
+      axios.get('http://localhost:3000/users/signup?'+val)
+      .then( response => {
+        console.log(response.data)
+        if (response.data==='success'){
+          this.open('top')
+        }
+        else {
+          alert(response.data)
+        }
+        })
+    .catch(function (error) {
+      console.log(error);
+      });
+    },
+    login(){
+      var name=document.getElementsByClassName('mu-text-field-input')[0].value
+      var password=document.getElementsByClassName('mu-text-field-input')[1].value
+      let val='name='+name+'&password='+password
+      console.log(val)
+      axios.get('http://localhost:3000/users/login?'+val)
+      .then( response => {
+        console.log(response.data)
+        if (response.data==='success'){
+          this.$router.push('/personal/index');
+        }
+        })
+    .catch(function (error) {
+      console.log(error);
+      });
     }
   },
   watch: {
