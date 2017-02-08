@@ -3,6 +3,7 @@
         <div id="logo">
             <mu-list>
             <mu-list-item title="yutiansut" disabled >
+                {{items.user}}
                 <mu-avatar slot="left" :src="myron" />
             </mu-list-item>
             </mu-list>
@@ -55,9 +56,13 @@
 </template>
 <script>
 import myron from '../assets/QUANTAXIS.jpg'
+import axios from 'axios'
 export default {
   data () {
     return {
+        items:{
+            user:1
+        },
       myron
     }
   }
