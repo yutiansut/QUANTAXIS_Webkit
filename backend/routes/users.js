@@ -1,7 +1,14 @@
 var express = require('express');
 var router = express.Router();
+var mongoose = require('mongoose');
+mongoose.connect("mongodb://localhost:27017/quantaxisUser");
+var UserSchema = new mongoose.Schema({
+    username: String,
+    password: String,
+    Email : String
+});
 
-/* GET users listing. */
+var User = mongoose.model('users', UserSchema);
 router.get('*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -10,18 +17,63 @@ router.get('*', function(req, res, next) {
     res.header("Content-Type", "application/json;charset=utf-8");
     next();
 });
-
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+  res.render('user/index', { title: 'UserS' });
+}); 
 
-router.get('/login', function(req, res, next) {
-  res.send('respond with a resource');
+
+router.get('/signup',function(req,res,next){
+  if (req.query.name){
+    var name = req.query.name;
+    console.log(name)
+    if (req.query.password){
+      var password=req.query.password;
+      console.log(password)
+      User.findOne({username:name},function(err,doc){
+        if(err) {
+          
+        }
+        else {
+          if (doc===null){
+            var user=new User({
+            username:name,
+            password:password
+
+          });
+          user.save(function(err,doc){
+            if (err){
+              console.log('error')
+              res.send('failed to register')
+            }
+            else {
+              console.log('success, new user name'+name+',password'+password);
+              res.send('success');
+            }
+          })
+        }
+        else res.send('already exist')
+        }
+
+      })
+    }
+  }
+    
+    
+
 });
-router.get('/signin', function(req, res, next) {
-  res.send('respond with a resource');
-});
-router.get('/findsame', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get('/login',function(req,res,next){
+    if (req.query.name) {
+       var name=req.query.name;
+       User.findOne({username:name},function(err,doc) {
+         var uPassword=req.query.password;
+         if (uPassword===doc.password) {
+           res.send('success')
+           console.log('success')
+         }
+         else res.send('wrong password')
+       }
+       )}
+   else res.send('no user name')
+  }
+);
 module.exports = router;
