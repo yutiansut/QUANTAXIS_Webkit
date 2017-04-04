@@ -6,6 +6,7 @@
                     <router-link to="/personal/notebook"><mu-list-item title="NOTEBOOK"></mu-list-item></router-link>
                     <router-link to="/personal/index"><mu-list-item title="模拟回测"></mu-list-item></router-link>
                     <router-link to="/personal/axios"><mu-list-item title="爬虫部署"></mu-list-item></router-link>
+                    <router-link to="/personal/visual"><mu-list-item title="可视化"></mu-list-item></router-link>
                 </mu-list>
                   <mu-divider/>
                   <mu-list>
@@ -14,7 +15,9 @@
                     <router-link to="/personal/index"><mu-list-item title="我喜欢的策略"></mu-list-item></router-link>
                     <router-link to="/personal/index"><mu-list-item title="账户设置"></mu-list-item></router-link>
                     <router-link to="/personal/index"><mu-list-item title="APIS"></mu-list-item></router-link>
+                    </mu-list>
                     <mu-divider/>
+
         </div>
     <div id="view">
         <router-view></router-view>
