@@ -6,7 +6,7 @@ var cheerio = require('cheerio');
 var axios = require('axios');
 var http = require('http'); 
 var events = require('events');
-var mongoose =require('mongoose')
+var mongodb=require('mongodb')
 var request = require('superagent');
 
 /* GET home page. */
@@ -14,57 +14,116 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Backtest' });
 });
 
-router.get("/ts",function(req,res,next){
-  var variety=req.query.variety;
-  var bidCode=req.query.bidCode;
-  var bidPrice=req.query.bidPrice;
-  var bidTime=req.query.bidTime;
-  var db= mongoose.createConnection('localhost','stock');
-  db.on('error',console.error.bind(console,'连接错误:'));
-  var tsModel=new mongoose.Schema({
-    code:String,
-    date:String,
-    high:Number,
-    low:Number
-  });
-  var tsx=db.model('ts', tsModel);
-      tsx.findOne({'code':bidCode,'date':bidTime},function(err,datas){
-        if (err==null){
-          console.log(datas.high)
-          console.log(datas.low)
-          if(datas.low<=bidPrice & bidPrice<=datas.high){
-            console.log("success")
-            res.send("success")
-          }
-          else{
-            console.log("failed")
-            res.send("failed")
-          }
-        }
-        else{
-          console.log(err)
-        }
-        
-      //如果err==null，则person就能取到数据
-    });
-
-});
-router.get("/tick",function(req,res,next){
-  var variety=req.query.variety;
-  var bidCode=req.query.bidCode;
-  var bidPrice=req.query.bidPrice;
-  var bidTime=req.query.bidTime;
+router.get('*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+    res.header("X-Powered-By",' 3.2.1')
+    res.header("Content-Type", "application/json;charset=utf-8");
+    next();
 });
 
-router.get("/save",function(req,res,next){
-  var username=req.query.username;
-  var password=req.query.password;
-  var db= mongoose.createConnection('localhost','backtest');
-  db.on('error',console.error.bind(console,'连接错误:'));
-  var tsModel=new mongoose.Schema({
-    
-  });
+
+
+
+//http://localhost:3000/backtest/info?name=yutiansut
+router.get('/info',function(req, res, next) {
+  console.log('backtest')
+  name=req.query.name
+  console.log(req.query.name)
+  mongodb.connect('mongodb://localhost:27017/quantaxis', function (err, conn) {
+        conn.collection('backtest_info', function (err, coll) {
+          coll.find({'user': name }).toArray(function (err, docs) {
+            res.send(docs)
+          
+        })
+      })
+
+})
 });
+router.get('/info_all',function(req, res, next) {
+  console.log('backtest')
+
+  mongodb.connect('mongodb://localhost:27017/quantaxis', function (err, conn) {
+        conn.collection('backtest_info', function (err, coll) {
+          coll.find({}).toArray(function (err, docs) {
+            res.send(docs)
+          
+        })
+      })
+
+})
+});
+router.get('/info_code',function(req, res, next) {
+  console.log('backtest')
+  
+  var code=new RegExp(req.query.code);
+  console.log(code)
+  mongodb.connect('mongodb://localhost:27017/quantaxis', function (err, conn) {
+        conn.collection('backtest_info', function (err, coll) {
+          coll.find({'stock_list': code }).toArray(function (err, docs) {
+            res.send(docs)
+          
+        })
+      })
+
+})
+});
+
+
+router.get('/info_cookie',function(req, res, next) {
+  console.log('backtest')
+  cookie=req.query.cookie
+  console.log(req.query.cookie)
+  mongodb.connect('mongodb://localhost:27017/quantaxis', function (err, conn) {
+        conn.collection('backtest_info', function (err, coll) {
+          coll.find({'account_cookie': cookie }).toArray(function (err, docs) {
+            res.send(docs[0])
+          
+        })
+      })
+
+})
+});
+
+
+router.get('/history',function(req, res, next) {
+  
+  cookie=req.query.cookie
+  console.log(cookie)
+  mongodb.connect('mongodb://localhost:27017/quantaxis', function (err, conn) {
+        conn.collection('backtest_history', function (err, coll) {
+          coll.find({'cookie':cookie}).toArray(function (err, docs) {
+            //console.log(docs.length)
+            res.send(docs[docs.length-1])
+          
+        })
+      })
+
+})
+});
+
+
+router.get('/market',function(req, res, next) {
+  
+  cookie=req.query.cookie
+  console.log(cookie)
+  mongodb.connect('mongodb://localhost:27017/quantaxis', function (err, conn) {
+        conn.collection('backtest_history', function (err, coll) {
+          coll.find({'cookie':cookie}).toArray(function (err, docs) {
+            //console.log(docs.length)
+            data=[]
+            for (id in docs){
+              data.push({'market':docs[id]['market'],'bid':docs[id]['bid']})
+            }
+            res.send(data)
+          
+        })
+      })
+
+})
+});
+
+
 
 module.exports = router;
- 
