@@ -1,5 +1,7 @@
 # quantaxis_webkit
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/yutiansut/QUANTAXIS_Webkit.svg)](https://greenkeeper.io/)
+
 quantaxis_webkit 主要需要维护几件事:
 
 - quantaxis的模板生成,简化代码生成:基于flask
